@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} ? ${title} : 'Mi Cariñito'">Mi Cariñito</title>
+    <link rel="icon" th:href="@{/images/log.png}" type="image/x-icon" style="border-radius: 50%;">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/css/templatemo-style.css}">
+	<style>
+			    .alert-success {
+			        position: fixed;
+			        top: 170px;
+			        left: 50%;
+			        transform: translateX(-50%);
+			        max-width: 900px;
+			        width: 80%;
+			        z-index: 1000;
+			        text-align: center;
+			        padding: 15px;
+					color: white;
+					font-weight: bold;
+					background-color: rgb(16, 168, 28);
+			        border-radius: 5px;
+			        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			    }
+
+			    .close-btn {
+			        position: absolute;
+			        top: 10px;
+			        right: 10px;
+			        cursor: pointer;
+			        font-size: 24px;
+			        font-weight: bold;
+			        color: #000;
+			    }
+			</style>
+	 
+
+
+	
+</head>
+<body style="background-color: rgb(244, 242, 168);">
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
+
+	<!-- MENU -->
+			<section class="navbar custom-navbar" role="navigation" style="background-color: rgba(216, 59, 59, 100); top: 0; left: 0; width: 100%;">
+			  <div class="container">
+			    <div class="navbar-header">
+			      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			        <span class="icon icon-bar"></span>
+			        <span class="icon icon-bar"></span>
+			        <span class="icon icon-bar"></span>
+			      </button>
+			      <!-- LOGO TEXT HERE -->
+			      <a class="navbar-brand" th:href="@{/}" style="margin-top: -20px;">
+			        <img th:src="@{/images/log.png}" alt="Mi Cariñito" style="height: 60px; border-radius: 50%;">
+			      </a>
+			    </div>
+			    <!-- MENU LINKS -->
+			    <div class="collapse navbar-collapse">
+			      <ul class="nav navbar-nav navbar-nav-first">
+			        <li><a th:href="@{/}" class="smoothScroll" style="color: white;">Home</a></li>
+			        <li><a th:href="@{/carta}" class="smoothScroll" style="color: white;">Carta</a></li>
+			        <li><a th:href="@{/comentarios}" class="smoothScroll" style="color: white;">Comentarios</a></li>
+			        <li><a th:href="@{/contactanos}" class="smoothScroll" style="color: white;">Contactanos</a></li>
+			      </ul>
+			    </div>
+			  </div>
+			</section>
+
+
+			<section id="contact" data-stellar-background-ratio="0.5">
+					    <h1 style="margin-left: 8%;">Formulario de Contacto</h1>
+
+						<div th:if="${mensajeExito}" class="alert alert-success" id="success-message">
+						        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+						        <p th:text="${mensajeExito}"></p>
+						    </div>
+
+					    <div class="container" style="margin-top: 5%;">
+					        <div class="row">
+					            <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
+					                <div id="google-map">
+					                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.556239153644!2d-79.04972482065432!3d-8.14657519999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d19f37fbe17%3A0x9b880a03efbae34c!2sMi%20cari%C3%B1ito!5e0!3m2!1ses-419!2spe!4v1718227875434!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					                </div>
+					            </div>
+
+					            <div class="col-md-6 col-sm-12">
+					                <!-- CONTACT FORM -->
+					                <form action="/contactanos" method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.8s">
+					                    <div class="col-md-6 col-sm-6">
+					                        <input type="text" class="form-control" id="cf-name" name="nombre" placeholder="Nombre" required>
+					                    </div>
+
+					                    <div class="col-md-6 col-sm-6">
+					                        <input type="email" class="form-control" id="cf-email" name="correo_electronico" placeholder="Correo Electrónico" required>
+					                    </div>
+
+					                    <div class="col-md-12 col-sm-12">
+					                        <textarea class="form-control" rows="6" id="cf-message" name="mensaje" placeholder="Mensaje" required></textarea>
+
+					                        <button type="submit" class="form-control" id="cf-submit" name="submit" style="background-color: rgb(16, 168, 28);">Enviar Mensaje</button>
+					                    </div>
+					                </form>
+					            </div>
+					        </div>
+					    </div>
+					</section>
+		
+		
+		<script>
+		   
+		    setTimeout(function() {
+		        var successMessage = document.getElementById('success-message');
+		        if (successMessage) {
+		            successMessage.style.display = 'none';
+		        }
+		    }, 4000);
+		</script>         
+
+	 <footer class="footer" style="background-color: rgba(216, 59, 59, 0.836);">
+	 		<div class="container">
+	 		  <div class="row justify-content-center">
+	 		    <div class="col-md-4 text-center">
+	 		      <h4 style="color: white;">Delivery</h4>
+	 		      <p style="color: white;">
+	 		        ¿Antojaste algo delicioso pero no quieres salir?<br>
+	 		        Pídelo ahora por WhatsApp y en minutos te llevarán tus favoritos a tu puerta.<br>
+	 		        986 464 478
+	 		      </p>
+	 		    </div>
+	 		    <div class="col-md-4 text-center text-white">
+	 		      <h4 style="color: white;">Información</h4>
+	 		      <p style="color: white;">90765478</p>
+	 		      <p style="color: white;">micariñito@gmail.com</p>
+	 		    </div>
+	 		    <div class="col-md-4 text-center text-white">
+	 				<h4 style="color: white;">Redes Sociales</h4>
+	 				<ul class="wow fadeInUp social-icon" data-wow-delay="0.4s" style="font-size: 2em;">
+	 				    <a href="https://web.facebook.com/?_rdc=1&_rdr" class="fa fa-facebook-square" attr="facebook icon" style="color: white;"></a>
+	 				    <a href="https://www.instagram.com/" class="fa fa-instagram" style="color: white;"></a>
+	 				</ul>
+	 		      <p style="color: white;">&copy; 2024 MiCariñito</p>
+	 		    </div>
+	 		  </div>
+	 		</div>
+	 	</footer>
+
+	     <!-- SCRIPTS -->
+	     <script th:src="@{/js/jquery.js}"></script>
+	     <script th:src="@{/js/bootstrap.min.js}"></script>
+	     <script th:src="@{/js/jquery.stellar.min.js}"></script>
+	     <script th:src="@{/js/wow.min.js}"></script>
+	     <script th:src="@{/js/owl.carousel.min.js}"></script>
+	     <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	     <script th:src="@{/js/smoothscroll.js}"></script>
+	     <script th:src="@{/js/custom.js}"></script>
+
+	 </body>
+
+	 </html>

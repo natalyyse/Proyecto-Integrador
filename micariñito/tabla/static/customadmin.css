@@ -1,0 +1,36 @@
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: #ebe72f;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.button:hover {
+    text-decoration: none;
+    background-color: #08d858; 
+    opacity: 0.9;
+}
+
+[class*=accent-] a.btn-secondary {
+    color: #db0a0a;
+}
+
+.brand-link {
+    color: black !important;
+    text-decoration: none;
+}
+
+.brand-link:hover {
+    color: black !important;
+}

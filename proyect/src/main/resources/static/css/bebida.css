@@ -1,0 +1,60 @@
+.product-card {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    max-width: 200px;
+    vertical-align: top;
+}
+
+.product-card img {
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.product-card .price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-card .cart-icon {
+    display: inline-block;
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.product-card .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.product-card .quantity button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.product-card .quantity input {
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+}
